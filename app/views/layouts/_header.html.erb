@@ -1,0 +1,58 @@
+<nav class="navbar nabvar-expand-lg navbar-dark bg-dark">
+  <div class="continer">
+    <a class="navbar-brand" href="/"><span>Bookers</span></a>
+<% if user_signed_in? %>
+
+<ul class="nav ml-auto">
+      <li>
+        <%= link_to "/users/#{current_user.id}", :class =>"nav-link text-light"  do %>
+        <i class="fas fa-home"></i> Home
+        <% end %>
+
+      </li>
+
+      <li>
+        <a href="/users" class="nav-link text-light"><i class="fas fa-users"></i> Users</a>
+
+      </li>
+
+
+      <li>
+        <a href="/books" class="nav-link text-light"><i class="fas fa-book-open"></i> Books</a>
+      </li>
+
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete, :class =>"nav-link text-light"  do %>
+         <i class="fas fa-sign-out-alt"></i> Log out
+        <% end %>
+      </li>
+</ul>
+
+
+    <% else %>
+
+    <ul class="nav ml-auto">
+      <li>
+         <a href="/" class="nav-link text-light"><i class="fas fa-home"></i> Home</a>
+
+      </li>
+
+      <li>
+        <a href="/home/about" class="nav-link text-light"><i class="fas fa-link"></i> About</a>
+      </li>
+
+      <li>
+        <%= link_to new_user_registration_path, :class =>"nav-link text-light"  do %>
+        <i class="fas fa-user-plus"></i> Sign up
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_user_session_path, :class =>"nav-link text-light"  do %>
+        <i class="fas fa-sign-in-alt"></i> Log in
+        <% end %>
+      </li>
+    </ul>
+
+    <% end %>
+    </div>
+  </nav>
